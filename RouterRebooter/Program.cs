@@ -57,9 +57,14 @@ namespace RouterRebooter
 
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("ROUTER REBOOTED SUCCESSFULLY");
+
+                // Close windows
+                chrome.Close();
+                Environment.Exit(0);
             }
             catch (Exception ex)
             {
+                // Print error and keep window alive
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();
