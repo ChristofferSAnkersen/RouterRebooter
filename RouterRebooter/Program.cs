@@ -55,12 +55,15 @@ namespace RouterRebooter
                 IWebElement confirm = chrome.FindElementByCssSelector("button[ng-click='reboot()']");
                 confirm.Click();
 
+                // Success
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("ROUTER REBOOTED SUCCESSFULLY");
 
-                // Close windows
+                // Close windows and dispose of resources
                 chrome.Close();
+                chrome.Dispose();
                 Environment.Exit(0);
+                return;
             }
             catch (Exception ex)
             {
